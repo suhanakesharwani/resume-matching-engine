@@ -1,27 +1,77 @@
-# Import Necessary Module
-from sklearn.feature_extraction.text import TfidfVectorizer
+# # Import Necessary Module
+# from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-# Function to Generate TF-IDF Vectors
+# # Function to Generate TF-IDF Vectors
+# def tfidf_vectorize(resumes):
+#     """
+#     Convert normalized resume skills into TF-IDF vectors.
+
+#     Args:
+#         resumes (list): List of normalized resume skill lists.
+
+#     Returns:
+#         tuple: TF-IDF matrix and fitted vectorizer.
+#     """
+
+#     # Convert skill lists into text documents
+#     docs = [" ".join(r) for r in resumes]
+
+#     # Initialize TF-IDF vectorizer
+#     vectorizer = TfidfVectorizer()
+
+#     # Fit and transform documents
+#     X = vectorizer.fit_transform(docs)
+
+#     # Return TF-IDF vectors and vectorizer
+#     return X, vectorizer
+
+import math
+from collections import defaultdict
+
 def tfidf_vectorize(resumes):
     """
-    Convert normalized resume skills into TF-IDF vectors.
+    Convert resumes into TF-IDF vectors using manual implementation.
 
     Args:
-        resumes (list): List of normalized resume skill lists.
+        resumes (list): List of normalized resume skills.
 
     Returns:
-        tuple: TF-IDF matrix and fitted vectorizer.
+        tuple: TF-IDF vectors and shared vocabulary.
     """
 
-    # Convert skill lists into text documents
-    docs = [" ".join(r) for r in resumes]
+    # Build vocabulary from all resumes
+    vocabulary = set()
 
-    # Initialize TF-IDF vectorizer
-    vectorizer = TfidfVectorizer()
+    for r in resumes:
+        vocabulary.update(r)
 
-    # Fit and transform documents
-    X = vectorizer.fit_transform(docs)
+    vocabulary = sorted(list(vocabulary))
 
-    # Return TF-IDF vectors and vectorizer
-    return X, vectorizer
+    # Compute document frequency for each skill
+    df = defaultdict(int)
+
+    for skill in vocabulary:
+        for r in resumes:
+            if skill in r:
+                df[skill] += 1
+
+    N = len(resumes)
+
+    vectors = []
+
+    # Compute TF-IDF vector for each resume
+    for r in resumes:
+
+        vec = []
+
+        for skill in vocabulary:
+
+            tf = 1 / len(r) if skill in r else 0
+            idf = math.log(N / df[skill]) if df[skill] else 0
+
+            vec.append(tf * idf)
+
+        vectors.append(vec)
+
+    return vectors, vocabulary
