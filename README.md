@@ -82,6 +82,7 @@ Cosine(A,B)=\frac{A\cdot B}{|A||B|}
 
 ---
 
+
 ## ▶️ How to Run
 
 ```bash
@@ -93,6 +94,7 @@ cd resume-jd-matching-engine
 
 # Run program
 python main.py
+```
 
 ---
 
@@ -105,48 +107,46 @@ The program prints the **Top 3 ranked candidates** for each Job Description base
 ![Resume-JD Matching Results](output.png)
 
 ### Output Format
-JD-1 — Kakao (ML Engineer)
+
+JD-1 — Kakao (ML Engineer)  
 Name(score), Name(score), Name(score)
 
-JD-2 — Naver (Backend Engineer)
+JD-2 — Naver (Backend Engineer)  
 Name(score), Name(score), Name(score)
 
-JD-3 — Line (Frontend Engineer)
+JD-3 — Line (Frontend Engineer)  
 Name(score), Name(score), Name(score)
-
 
 **Output Rules**
-- Scores are rounded to **2 decimal places**
+- Scores rounded to **2 decimal places**
 - Candidates ranked in **descending similarity**
-- Ties are resolved **alphabetically by candidate name**
+- Ties resolved **alphabetically**
 
 ---
 
 ## 🏆 Results
 
 ### JD-1 — Kakao (ML Engineer)
-Sneha Patel (0.85),  
-Meera Iyer (0.78),  
+Sneha Patel (0.85)  
+Meera Iyer (0.78)  
 Arjun Sharma (0.69)
 
 ---
 
 ### JD-2 — Naver (Backend Engineer)
-Rahul Gupta (0.92),  
-Ananya Krishnan (0.85),  
+Rahul Gupta (0.92)  
+Ananya Krishnan (0.85)  
 Priya Nair (0.79)
 
 ---
 
 ### JD-3 — Line (Frontend Engineer)
-Aditya Kumar (0.88),  
-Priya Nair (0.82),  
+Aditya Kumar (0.88)  
+Priya Nair (0.82)  
 Ananya Krishnan (0.75)
 
 ---
 
 > **Note**
-> - Similarity scores represent how closely a candidate's skills match the job requirements.
-> - Higher score ⇒ stronger skill alignment with the Job Description.
-
----
+> - Higher similarity score ⇒ stronger skill alignment.
+> - Results are computed using manual TF-IDF + cosine similarity.
