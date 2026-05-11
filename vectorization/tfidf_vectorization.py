@@ -1,31 +1,3 @@
-# # Import Necessary Module
-# from sklearn.feature_extraction.text import TfidfVectorizer
-
-
-# # Function to Generate TF-IDF Vectors
-# def tfidf_vectorize(resumes):
-#     """
-#     Convert normalized resume skills into TF-IDF vectors.
-
-#     Args:
-#         resumes (list): List of normalized resume skill lists.
-
-#     Returns:
-#         tuple: TF-IDF matrix and fitted vectorizer.
-#     """
-
-#     # Convert skill lists into text documents
-#     docs = [" ".join(r) for r in resumes]
-
-#     # Initialize TF-IDF vectorizer
-#     vectorizer = TfidfVectorizer()
-
-#     # Fit and transform documents
-#     X = vectorizer.fit_transform(docs)
-
-#     # Return TF-IDF vectors and vectorizer
-#     return X, vectorizer
-
 import math
 from collections import defaultdict
 
@@ -39,6 +11,9 @@ def tfidf_vectorize(resumes):
     Returns:
         tuple: TF-IDF vectors and shared vocabulary.
     """
+
+    # Remove duplicate skills from each resume
+    resumes = [list(set(r)) for r in resumes]
 
     # Build vocabulary from all resumes
     vocabulary = set()
@@ -67,7 +42,7 @@ def tfidf_vectorize(resumes):
 
         for skill in vocabulary:
 
-            tf = 1 / len(r) if skill in r else 0
+            tf = 1 if skill in r else 0
             idf = math.log(N / df[skill]) if df[skill] else 0
 
             vec.append(tf * idf)
