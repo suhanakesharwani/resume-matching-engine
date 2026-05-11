@@ -1,0 +1,80 @@
+SKILL_ALIASES = {
+"python":"python",
+"pyhton":"python",
+"java":"java",
+"javascript":"javascript",
+"javascrpit":"javascript",
+"typescript":"typescript",
+"typescrpit":"typescript",
+"c++":"cpp",
+"cpp":"cpp",
+"r":"r",
+"kotlin":"kotlin",
+
+"machinelearning":"machine_learning",
+"machine learning":"machine_learning",
+"ml":"machine_learning",
+"sklearn":"machine_learning",
+
+"deeplearning":"deep_learning",
+"deep learning":"deep_learning",
+"deep-learning":"deep_learning",
+
+"tensorflow":"tensorflow",
+"pytorch":"pytorch",
+"keras":"keras",
+"nlp":"nlp",
+"bert":"bert",
+"xgboost":"xgboost",
+"feature engineering":"feature_engineering",
+"statistics":"statistics",
+"regression":"regression",
+"clustering":"clustering",
+
+"data-viz":"data_visualization",
+"matplotlib":"data_visualization",
+"tableau":"data_visualization",
+"power-bi":"data_visualization",
+
+"pandas":"pandas",
+"numpy":"numpy",
+
+"react":"react",
+"reacts":"react",
+"reactjs":"react",
+"vue":"vue",
+"vue.js":"vue",
+"redux":"redux",
+"tailwind":"tailwind",
+"html/css":"html_css",
+
+"node.js":"nodejs",
+"nodejs":"nodejs",
+"flask":"flask",
+"spring boot":"spring_boot",
+"rest api":"rest_api",
+"microservices":"microservices",
+
+"sql":"sql",
+"mysql":"mysql",
+"postgresql":"postgresql",
+"mongodb":"mongodb",
+"redis":"redis",
+
+"docker":"docker",
+"kubernetes":"kubernetes",
+"kubernates":"kubernetes",
+"ci/cd":"ci_cd",
+"aws":"aws",
+
+"android":"android",
+"firebase":"firebase",
+
+"algorithms":"algorithms",
+"algoritms":"algorithms",
+"data structure":"data_structures",
+"competitive programming":"competitive_programming",
+
+"ui/ux":"ui_ux",
+"figma":"figma"
+}
