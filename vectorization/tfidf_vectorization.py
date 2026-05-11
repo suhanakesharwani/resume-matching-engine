@@ -43,7 +43,8 @@ def tfidf_vectorize(resumes):
         for skill in vocabulary:
 
             tf = 1 if skill in r else 0
-            idf = math.log(N / df[skill]) if df[skill] else 0
+           
+            idf = math.log((N + 1) / (df[skill] + 1)) + 1
 
             vec.append(tf * idf)
 
